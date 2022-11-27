@@ -30,4 +30,4 @@ root                    (project root folder)
 
 ## Authors
 ---
-* # TODO: Add your name and email here
+* # Aaron Wilson (Aarjwilson@gmail.com)
