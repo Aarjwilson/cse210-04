@@ -13,6 +13,9 @@ class Artifact(Actor):
         return self._message"""
 
     def calculate_points(self):
+        """
+        Is used to determine the artifacts points value. 1 for gems and -1 for stones
+        """
         points = 0
 
         if (self.get_text() == "*"):
