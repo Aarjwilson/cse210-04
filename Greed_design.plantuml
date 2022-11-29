@@ -1,0 +1,118 @@
+@startuml Hilo Game Design 
+!define DARKRED
+!includeurl https://raw.githubusercontent.com/Drakemor/RedDress-PlantUML/master/style.puml
+
+package game {
+
+    package casting {
+        class Actor{
+            - _text
+            - _font_size
+            - _color
+            - _position
+            - _velocity
+
+            + get_color()
+            + get_font_size()
+            + get_position()
+            + get_text()
+            + get_velocity()
+            + move_next()
+            + set_color()
+            + set_position()
+            + set_font_size()
+            + set_text()
+            + set_velocity()
+        }
+
+        class Artifact(Actor){
+            super().__init__()
+            ---
+            + calculate_points()
+
+        }
+
+        class Cast{
+            - _actors = {}
+
+            + add_actor()
+            + get_actors()
+            + get_all_actors()
+            + get_first_actor()
+            + remove_actor()
+
+        }
+
+    }
+
+    package directing {
+        class Director {
+            - _keyboard_service
+            - _video_service
+            - _points 
+
+            + start_game()
+            - _get_inuts()
+            - _do_updates()
+            - _do_outputs()
+        }
+
+    }
+
+    package services {
+        class Keyboard_Services {
+            - _cell_size
+
+            + get_direction()
+        }
+
+        class Video_Services {
+            - _caption
+            - _width
+            - _height
+            - _cell_size
+            - _frame_rate
+            - _debug
+
+            + close_window()
+            + clear_buffer()
+            + draw_actor()
+            + draw_actors()
+            + flush_buffer()
+            + get_cell_size()
+            + get_height()
+            + get_width()
+            + is_window_open()
+            + open_window()
+            - _draw_grid()
+        }
+
+    }
+
+    package shared {
+        class Color {
+            - _red 
+            - _green 
+            - _blue 
+            - _alpha 
+
+            + to_tuple()
+        }
+
+        class Point {
+            - _x 
+            - _y 
+
+            + add()
+            + equals()
+            + get_x()
+            + get_y()
+            + scale()
+        }
+
+    }
+
+
+}
+
+@enduml
